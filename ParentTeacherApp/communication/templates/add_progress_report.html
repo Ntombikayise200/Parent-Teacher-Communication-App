@@ -1,0 +1,6 @@
+<h1>Add Progress Report for {{ student.name }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="report" rows="4" cols="50"></textarea><br>
+    <button type="submit">Add Report</button>
+</form>

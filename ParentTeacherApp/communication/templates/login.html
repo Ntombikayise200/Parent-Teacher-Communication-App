@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>User Registration Form</title>
+</head>
+<style>
+  body {
+    background-image: url("");
+    background-color: skyblue;
+    background-repeat: no-repeat;
+    background-size: 1500px 620px;
+    text-align: center;
+    font-size: 22px;
+    color: White;
+  }
+  h1 {
+    color: white;
+    font-size: 60px;
+    font-family: cursive;
+  }
+  .form1 {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    margin-top: 0px;
+    width: 28%;
+    position: absolute;
+    left: 34%;
+    border-radius: 15px;
+  }
+  input {
+    width: 330px;
+    height: 30px;
+    border-radius: 7px;
+    text-align: center;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 18px;
+  }
+  input[type="submit"] {
+    font-size: 20px;
+    height: 40px;
+    background-color: #0008ff;
+  }
+  input[type="submit"]:hover {
+    color: white;
+    background-color: blue;
+  }
+  select {
+    height: 30px;
+    width: 252px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <h1>Parent-Teacher Communication App</h1>
+    <div class="form1">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        <input type="text" name="username" placeholder="Username" id="username" required autocomplete="username"><br><br>
+        Password<br>
+        <input type="password" name="password" placeholder="PASSWORD" id="req5" required autocomplete="current-password"><br><br>
+        <input type="submit" value="Submit" onclick="return validateForm()">
+      </form>
+    </div>  
+  </div>
+  <script>
+    function validateForm() {
+      if (document.getElementById('username').value === "") {
+        alert("Enter your username");
+        return false;
+      }
+      if (document.getElementById('req5').value === "") {
+        alert("Enter your password");
+        return false;
+      }
+      
+      return true;
+    }
+  </script>
+</body>
+</html>

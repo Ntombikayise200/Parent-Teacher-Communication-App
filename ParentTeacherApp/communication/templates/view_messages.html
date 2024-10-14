@@ -1,0 +1,5 @@
+<h1>Messages for {{ student.name }}</h1>
+{% for message in messages %}
+    <p><strong>{{ message.sender.username }}:</strong> {{ message.content }}</p>
+{% endfor %}
+<a href="{% url 'send_message' student.id %}">Send a new message</a>

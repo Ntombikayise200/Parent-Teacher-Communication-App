@@ -1,0 +1,135 @@
+<html>
+<head>
+  <title>User Registration Form</title>
+</head>
+<style>
+  body {
+    background-image: url("");
+    background-color: skyblue;
+    background-repeat: no-repeat;
+    background-size: 1500px 620px;
+    text-align: center;
+    font-size: 22px;
+    color: White;
+  }
+  h1 {
+    color: white;
+    font-size: 60px;
+    font-family: cursive;
+  }
+  .form1 {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    margin-top: 0px;
+    width: 28%;
+    position: absolute;
+    left: 34%;
+    border-radius: 15px;
+  }
+  input {
+    width: 330px;
+    height: 30px;
+    border-radius: 7px;
+    text-align: center;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 18px;
+  }
+  input[type="submit"] {
+    font-size: 20px;
+    height: 40px;
+    background-color: #0008ff;
+  }
+  input[type="submit"]:hover {
+    color: white;
+    background-color: blue;
+  }
+  select {
+    height: 30px;
+    width: 252px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <h1>Parent-Teacher Communication App</h1>
+    <div class="form1">
+      <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        
+        <input type="text" name="username" placeholder="Username" id="username" required><br><br>
+        
+        <input type="text" name="name" placeholder="NAME" id="req1" required><br><br>
+        
+        <input type="text" name="phone_number" placeholder="PHONE NUMBER" required><br><br>
+        
+        <input type="email" name="email" placeholder="EMAIL ADDRESS" id="req3" required><br><br>
+        
+        <!-- Province dropdown -->
+        Province: 
+        <select name="province" id="province" required>
+          <option value="">Select Province</option>
+          <option value="GP">Gauteng</option>
+          <option value="WC">Western Cape</option>
+          <option value="KZN">KwaZulu-Natal</option>
+          <option value="EC">Eastern Cape</option>
+          <option value="FS">Free State</option>
+          <option value="LIM">Limpopo</option>
+          <option value="NW">North West</option>
+          <option value="MP">Mpumalanga</option>
+          <option value="NC">Northern Cape</option>
+        </select><br><br>
+
+        <!-- School name input -->
+        <input type="text" name="school_name" placeholder="SCHOOL NAME" id="school_name" required><br><br>
+
+        Password<br>
+        <input type="password" name="password" placeholder="PASSWORD" id="req5" required><br><br>
+        
+        Gender:
+        <select name="gender" id="selection" required>
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="non-binary">Non-Binary</option>
+        </select><br><br>
+        
+        <input type="submit" value="Submit" onclick="return validateForm()">
+      </form>
+    </div>  
+  </div>
+
+  <script>
+    function validateForm() {
+      if (document.getElementById('req1').value === "") {
+        alert("Enter your name");
+        return false;
+      }
+      if (document.getElementById('req3').value === "") {
+        alert("Enter your email address");
+        return false;
+      }
+      if (document.getElementById('req5').value === "") {
+        alert("Enter your password");
+        return false;
+      }
+      if (document.getElementById('province').value === "") {
+        alert("Please select a province");
+        return false;
+      }
+      if (document.getElementById('school_name').value === "") {
+        alert("Please enter your school name");
+        return false;
+      }
+      if (document.getElementById('selection').value === "") {
+        alert("Please select gender");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>

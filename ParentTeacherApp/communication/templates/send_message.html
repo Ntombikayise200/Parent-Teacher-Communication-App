@@ -1,0 +1,6 @@
+<h1>Send Message to {{ student.parent if user.groups.filter(name='Teacher').exists else student.teacher }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="message" rows="4" cols="50"></textarea><br>
+    <button type="submit">Send</button>
+</form>
